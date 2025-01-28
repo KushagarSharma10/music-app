@@ -7,13 +7,12 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
 import { cn } from "@/utils/cn";
 
 export function Button({
   borderRadius = "1.75rem",
   children,
-  as: Component = "button",
+  as: Component = "button", // Default value is `button`
   containerClassName,
   borderClassName,
   duration,
@@ -22,7 +21,7 @@ export function Button({
 }: {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: unknown;
+  as?: React.ElementType; // This will allow any valid JSX element type
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
@@ -32,7 +31,7 @@ export function Button({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl  h-16 w-40 p-[1px] overflow-hidden ",
+        "bg-transparent relative text-xl h-16 w-40 p-[1px] overflow-hidden",
         containerClassName
       )}
       style={{
@@ -69,6 +68,7 @@ export function Button({
   );
 }
 
+// Ensure `MovingBorder` is also typed properly as a valid JSX component
 export const MovingBorder = ({
   children,
   duration = 2000,
@@ -82,7 +82,7 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: unknown;
 }) => {
-  const pathRef = useRef<unknown>();
+  const pathRef = useRef<SVGRectElement | null>(null); // Ensure pathRef is properly typed
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {
