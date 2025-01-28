@@ -109,7 +109,7 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: unknown) => {
+export const HoveredLink = ({ children, ...rest }: React.PropsWithChildren<JSX.IntrinsicElements['a']) => {
   return (
     <Link
       {...rest}
