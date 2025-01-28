@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import HeroSection from "@/components/Herosection";
 import FeaturedCourses from "@/components/FeaturedCourse";
 import MusicSchoolTestimonials from "@/components/TestimonialCards";
