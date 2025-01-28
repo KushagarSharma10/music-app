@@ -109,13 +109,4 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: React.PropsWithChildren<JSX.IntrinsicElements['a']>) => {
-  return (
-    <Link
-      {...rest}
-      className="text-white dark:text-white hover:text-zinc-900"
-    >
-      {children}
-    </Link>
-  );
-};
+
